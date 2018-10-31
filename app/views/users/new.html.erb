@@ -1,2 +1,23 @@
 <h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<!--<form action= "users#new" method="POST">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  	<input type="string" name="username">
+  	<input type="string" name="email">
+  	<input type="text" name="bio">
+  	<input type="submit" value="Envoyer">
+</form>
+-->
+<%= form_for @user, url: {action: "create"} do |f| %>
+  <%= f.text_field :username, autofocus: true, placeholder: 'First Name' %> <br><br><br>
+  <%= f.text_field :email, autofocus: true, placeholder: 'Example@ex.com' %> <br><br><br>
+  <%= f.text_area :bio, size: "33x10", autofocus: true, placeholder: 'Text'  %>
+  <%= f.submit "Create" %>
+<% end %>
+
+<!--<%= form_tag "users#new", method: "post" do %>
+  	<input type="string" name="username">
+  	<input type="string" name="email">
+  	<input type="text" name="bio">
+  	<input type="submit" value="Envoyer">
+<% end %>
+-->
